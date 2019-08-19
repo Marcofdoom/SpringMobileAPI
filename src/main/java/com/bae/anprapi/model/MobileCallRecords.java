@@ -1,38 +1,43 @@
 package com.bae.anprapi.model;
 
-import javax.persistence.Entity;
+import java.util.Date;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 
 @Data
 @Entity
 public class MobileCallRecords {
-	
+
 	@Id
-	private long callerMSISDN;
-	
-	private String callerCellTowerId;
-	
-	private String recieverMSISDN;
-	
-	private long recieverCellTowerId;
-	
-	private long timestamp;
+	private String callerMSISDN;
+
+	@Column(nullable = true)
+	private Long callerCellTowerId;
+
+	private String receiverMSISDN;
+
+	@Column(nullable = true)
+	private Long receiverTowerId;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date timeStamp;
 
 	public MobileCallRecords() {
-		super();
+
 	}
 
-	public MobileCallRecords(long callerMSISDN, String callerCellTowerId, String recieverMSISDN,
-			long recieverCellTowerId, long timestamp) {
-		super();
+	public MobileCallRecords(String callerMSISDN, Long callerCellTowerId, String receiverMSISDN, Long receiverTowerId,
+			Date timeStamp) {
 		this.callerMSISDN = callerMSISDN;
 		this.callerCellTowerId = callerCellTowerId;
-		this.recieverMSISDN = recieverMSISDN;
-		this.recieverCellTowerId = recieverCellTowerId;
-		this.timestamp = timestamp;
+		this.receiverMSISDN = receiverMSISDN;
+		this.receiverTowerId = receiverTowerId;
+		this.timeStamp = timeStamp;
 	}
-
 }

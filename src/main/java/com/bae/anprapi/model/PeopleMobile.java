@@ -1,8 +1,11 @@
 package com.bae.anprapi.model;
 
-import javax.persistence.Entity;
+import java.util.Date;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Data;
 
@@ -11,36 +14,30 @@ import lombok.Data;
 public class PeopleMobile {
 
 	@Id
-	private long phoneNumber;
-	
+	private String phoneNumber;
+
 	private String forenames;
-	
+
 	private String surname;
-	
-	private long dateOfBirth;
-	
-	private String Address;
-	
-	private String town;
-	
-	private String postcode;
-	
+
+	@Temporal(TemporalType.DATE)
+	private Date dateOfBirth;
+
+	private String address;
+
 	private String network;
 
 	public PeopleMobile() {
-		super();
+
 	}
 
-	public PeopleMobile(long phoneNumber, String forenames, String surname, long dateOfBirth, String address,
+	public PeopleMobile(String phoneNumber, String forenames, String surname, Date dateOfBirth, String address,
 			String town, String postcode, String network) {
-		super();
 		this.phoneNumber = phoneNumber;
 		this.forenames = forenames;
 		this.surname = surname;
 		this.dateOfBirth = dateOfBirth;
-		Address = address;
-		this.town = town;
-		this.postcode = postcode;
+		this.address = address;
 		this.network = network;
 	}
 }
