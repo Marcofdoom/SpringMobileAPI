@@ -9,7 +9,6 @@ import javax.persistence.TemporalType;
 
 import lombok.Data;
 
-@Data
 @Entity
 public class PeopleMobile {
 
@@ -40,4 +39,54 @@ public class PeopleMobile {
 		this.address = address;
 		this.network = network;
 	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getForenames() {
+		return forenames;
+	}
+
+	public void setForenames(String forenames) {
+		this.forenames = forenames;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getNetwork() {
+		return network;
+	}
+
+	public void setNetwork(String network) {
+		this.network = network;
+	}
+	
+	
 }

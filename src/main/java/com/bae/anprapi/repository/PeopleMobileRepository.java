@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.bae.anprapi.model.PeopleMobile;
 
 @Repository
-public interface PeopleMobileRepository extends JpaRepository<PeopleMobile, String> {
+public interface PeopleMobileRepository extends JpaRepository<PeopleMobile, String>, PeopleMobileRepositoryCustom {
 
 }

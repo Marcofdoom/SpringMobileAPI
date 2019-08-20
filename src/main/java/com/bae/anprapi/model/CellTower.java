@@ -5,7 +5,7 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Data
+
 @Entity
 public class CellTower {
 
@@ -31,4 +31,45 @@ public class CellTower {
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
+
+	public Long getCellTower() {
+		return cellTower;
+	}
+
+	public void setCellTower(Long cellTower) {
+		this.cellTower = cellTower;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
+
+	public void setOperator(String operator) {
+		this.operator = operator;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Float getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Float latitude) {
+		this.latitude = latitude;
+	}
+
+	public Float getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Float longitude) {
+		this.longitude = longitude;
+	}
+	
 }
