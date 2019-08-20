@@ -1,4 +1,4 @@
-package com.bae.anprapi.model;
+package com.bae.mobileapi.model;
 
 import java.util.Date;
 
@@ -87,6 +87,5 @@ public class PeopleMobile {
 	public void setNetwork(String network) {
 		this.network = network;
 	}
-	
-	
+
 }

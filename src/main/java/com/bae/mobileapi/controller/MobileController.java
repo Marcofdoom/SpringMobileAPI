@@ -1,4 +1,4 @@
-package com.bae.anprapi.controller;
+package com.bae.mobileapi.controller;
 
 import java.util.Date;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bae.anprapi.model.PeopleMobile;
-import com.bae.anprapi.service.MobileService;
+import com.bae.mobileapi.model.PeopleMobile;
+import com.bae.mobileapi.service.MobileService;
 
 @RestController
 @RequestMapping("/Mobile")

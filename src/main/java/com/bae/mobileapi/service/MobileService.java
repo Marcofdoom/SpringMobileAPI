@@ -1,10 +1,10 @@
-package com.bae.anprapi.service;
+package com.bae.mobileapi.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bae.anprapi.model.PeopleMobile;
+import com.bae.mobileapi.model.PeopleMobile;
 
 @Service
 public interface MobileService {

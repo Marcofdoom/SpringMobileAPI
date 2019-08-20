@@ -1,4 +1,4 @@
-package com.bae.anprapi;
+package com.bae.mobileapi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +11,6 @@ public class SpringMobileApiApplicationTests {
 
 	@Test
 	public void contextLoads() {
-	}
 
+	}
 }

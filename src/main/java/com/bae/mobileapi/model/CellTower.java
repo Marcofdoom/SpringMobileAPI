@@ -1,10 +1,9 @@
-package com.bae.anprapi.model;
+package com.bae.mobileapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import lombok.Data;
-
 
 @Entity
 public class CellTower {
@@ -71,5 +70,4 @@ public class CellTower {
 	public void setLongitude(Float longitude) {
 		this.longitude = longitude;
 	}
-	
 }

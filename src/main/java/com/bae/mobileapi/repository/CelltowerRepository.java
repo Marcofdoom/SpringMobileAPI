@@ -1,9 +1,9 @@
-package com.bae.anprapi.repository;
+package com.bae.mobileapi.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.bae.anprapi.model.CellTower;
+import com.bae.mobileapi.model.CellTower;
 
 @Repository
 public interface CelltowerRepository extends JpaRepository<CellTower, Long>{

@@ -1,4 +1,4 @@
-package com.bae.anprapi.repository;
+package com.bae.mobileapi.repository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +14,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bae.anprapi.model.PeopleMobile;
+import com.bae.mobileapi.model.PeopleMobile;
 
 @Repository
 public class PeopleMobileRepositoryCustomImpl implements PeopleMobileRepositoryCustom {
