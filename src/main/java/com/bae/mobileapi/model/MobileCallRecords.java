@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,69 +14,80 @@ import javax.persistence.TemporalType;
 public class MobileCallRecords {
 
 	@Id
-	private String callerMSISDN;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private String callerMsisdn;
 
 	@Column(nullable = true)
-	private Long callerCellTowerId;
+	private Long callerCellTower;
 
-	private String receiverMSISDN;
+	private String receiverMsisdn;
 
 	@Column(nullable = true)
-	private Long receiverTowerId;
+	private Long receiverCellTower;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date timeStamp;
+	private Date timestamp;
 
 	public MobileCallRecords() {
 
 	}
 
-	public MobileCallRecords(String callerMSISDN, Long callerCellTowerId, String receiverMSISDN, Long receiverTowerId,
-			Date timeStamp) {
-		this.callerMSISDN = callerMSISDN;
-		this.callerCellTowerId = callerCellTowerId;
-		this.receiverMSISDN = receiverMSISDN;
-		this.receiverTowerId = receiverTowerId;
-		this.timeStamp = timeStamp;
+	public MobileCallRecords(String callerMsisdn, Long callerCellTower, String receiverMsisdn, Long receiverCellTower,
+			Date timestamp) {
+		this.callerMsisdn = callerMsisdn;
+		this.callerCellTower = callerCellTower;
+		this.receiverMsisdn = receiverMsisdn;
+		this.receiverCellTower = receiverCellTower;
+		this.timestamp = timestamp;
 	}
 
-	public String getCallerMSISDN() {
-		return callerMSISDN;
+	public Long getId() {
+		return id;
 	}
 
-	public void setCallerMSISDN(String callerMSISDN) {
-		this.callerMSISDN = callerMSISDN;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getCallerCellTowerId() {
-		return callerCellTowerId;
+	public String getCallerMsisdn() {
+		return callerMsisdn;
 	}
 
-	public void setCallerCellTowerId(Long callerCellTowerId) {
-		this.callerCellTowerId = callerCellTowerId;
+	public void setCallerMsisdn(String callerMsisdn) {
+		this.callerMsisdn = callerMsisdn;
 	}
 
-	public String getReceiverMSISDN() {
-		return receiverMSISDN;
+	public Long getCallerCellTower() {
+		return callerCellTower;
 	}
 
-	public void setReceiverMSISDN(String receiverMSISDN) {
-		this.receiverMSISDN = receiverMSISDN;
+	public void setCallerCellTower(Long callerCellTower) {
+		this.callerCellTower = callerCellTower;
 	}
 
-	public Long getReceiverTowerId() {
-		return receiverTowerId;
+	public String getReceiverMsisdn() {
+		return receiverMsisdn;
 	}
 
-	public void setReceiverTowerId(Long receiverTowerId) {
-		this.receiverTowerId = receiverTowerId;
+	public void setReceiverMsisdn(String receiverMsisdn) {
+		this.receiverMsisdn = receiverMsisdn;
 	}
 
-	public Date getTimeStamp() {
-		return timeStamp;
+	public Long getReceiverCellTower() {
+		return receiverCellTower;
 	}
 
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
+	public void setReceiverCellTower(Long receiverCellTower) {
+		this.receiverCellTower = receiverCellTower;
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 }

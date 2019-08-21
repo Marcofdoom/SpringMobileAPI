@@ -9,7 +9,7 @@ import lombok.Data;
 public class CellTower {
 
 	@Id
-	private Long cellTower;
+	private Long cellTowerId;
 
 	private String operator;
 
@@ -23,20 +23,20 @@ public class CellTower {
 
 	}
 
-	public CellTower(Long cellTower, String operator, String type, Float latitude, Float longitude) {
-		this.cellTower = cellTower;
+	public CellTower(Long cellTowerId, String operator, String type, Float latitude, Float longitude) {
+		this.cellTowerId = cellTowerId;
 		this.operator = operator;
 		this.type = type;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
 
-	public Long getCellTower() {
-		return cellTower;
+	public Long getCellTowerId() {
+		return cellTowerId;
 	}
 
-	public void setCellTower(Long cellTower) {
-		this.cellTower = cellTower;
+	public void setCellTower(Long cellTowerId) {
+		this.cellTowerId = cellTowerId;
 	}
 
 	public String getOperator() {
