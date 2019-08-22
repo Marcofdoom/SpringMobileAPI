@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.bae.mobileapi.model.MobileCallRecords;
 
 @Repository
-public interface MobileCallRecordsRepository extends JpaRepository<MobileCallRecords, String>{
-
+public interface MobileCallRecordsRepository
+		extends JpaRepository<MobileCallRecords, String>, MobileCallRecordsRepositoryCustom {
 }

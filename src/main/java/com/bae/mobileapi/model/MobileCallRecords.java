@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,12 +19,16 @@ public class MobileCallRecords {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String callerMsisdn;
+	@ManyToOne
+	@JoinColumn(name = "caller_msisdn")
+	private PeopleMobile callerMsisdn;
 
 	@Column(nullable = true)
 	private Long callerCellTower;
 
-	private String receiverMsisdn;
+	@ManyToOne()
+	@JoinColumn(name = "receiver_msisdn")
+	private PeopleMobile receiverMsisdn;
 
 	@Column(nullable = true)
 	private Long receiverCellTower;
@@ -34,8 +40,9 @@ public class MobileCallRecords {
 
 	}
 
-	public MobileCallRecords(String callerMsisdn, Long callerCellTower, String receiverMsisdn, Long receiverCellTower,
-			Date timestamp) {
+	public MobileCallRecords(Long id, PeopleMobile callerMsisdn, Long callerCellTower, PeopleMobile receiverMsisdn,
+			Long receiverCellTower, Date timestamp) {
+		this.id = id;
 		this.callerMsisdn = callerMsisdn;
 		this.callerCellTower = callerCellTower;
 		this.receiverMsisdn = receiverMsisdn;
@@ -51,11 +58,11 @@ public class MobileCallRecords {
 		this.id = id;
 	}
 
-	public String getCallerMsisdn() {
+	public PeopleMobile getCallerMsisdn() {
 		return callerMsisdn;
 	}
 
-	public void setCallerMsisdn(String callerMsisdn) {
+	public void setCallerMsisdn(PeopleMobile callerMsisdn) {
 		this.callerMsisdn = callerMsisdn;
 	}
 
@@ -67,11 +74,11 @@ public class MobileCallRecords {
 		this.callerCellTower = callerCellTower;
 	}
 
-	public String getReceiverMsisdn() {
+	public PeopleMobile getReceiverMsisdn() {
 		return receiverMsisdn;
 	}
 
-	public void setReceiverMsisdn(String receiverMsisdn) {
+	public void setReceiverMsisdn(PeopleMobile receiverMsisdn) {
 		this.receiverMsisdn = receiverMsisdn;
 	}
 
