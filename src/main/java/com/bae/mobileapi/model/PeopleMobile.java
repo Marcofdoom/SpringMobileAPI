@@ -1,13 +1,13 @@
 package com.bae.mobileapi.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import lombok.Data;
 
 @Entity
 public class PeopleMobile {
@@ -25,6 +25,9 @@ public class PeopleMobile {
 	private String address;
 
 	private String network;
+
+	@OneToMany(mappedBy = "callerMsisdn")
+	private List<MobileCallRecords> callRecords;
 
 	public PeopleMobile() {
 
