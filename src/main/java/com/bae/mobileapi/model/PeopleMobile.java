@@ -22,7 +22,7 @@ public class PeopleMobile {
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 
-	private String address;
+	private String homeAddress;
 
 	private String network;
 
@@ -33,13 +33,13 @@ public class PeopleMobile {
 
 	}
 
-	public PeopleMobile(String phoneNumber, String forenames, String surname, Date dateOfBirth, String address,
+	public PeopleMobile(String phoneNumber, String forenames, String surname, Date dateOfBirth, String homeAddress,
 			String town, String postcode, String network) {
 		this.phoneNumber = phoneNumber;
 		this.forenames = forenames;
 		this.surname = surname;
 		this.dateOfBirth = dateOfBirth;
-		this.address = address;
+		this.homeAddress = homeAddress;
 		this.network = network;
 	}
 
@@ -75,12 +75,12 @@ public class PeopleMobile {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getHomeAddress() {
+		return homeAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
 	}
 
 	public String getNetwork() {

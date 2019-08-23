@@ -15,12 +15,12 @@ import com.bae.mobileapi.util.CallType;
 public class MobileCallRecordsRepositoryCustomImpl implements MobileCallRecordsRepositoryCustom {
 
 	private static final String CALLS_CALLED_QUERY = "SELECT NEW com.bae.mobileapi.model.DTO.MobileCallRecordsDTO("
-			+ "p.receiverMsisdn.forenames, p.receiverMsisdn.surname, p.receiverMsisdn.address,"
+			+ "p.receiverMsisdn.forenames, p.receiverMsisdn.surname, p.receiverMsisdn.homeAddress,"
 			+ "p.receiverMsisdn.dateOfBirth, p.timestamp) FROM MobileCallRecords p where "
 			+ "p.callerMsisdn.phoneNumber = :phoneNumber";
 
 	private static final String CALLS_RECEIVED_QUERY = "SELECT NEW com.bae.mobileapi.model.DTO.MobileCallRecordsDTO("
-			+ "p.callerMsisdn.forenames, p.callerMsisdn.surname, p.callerMsisdn.address,"
+			+ "p.callerMsisdn.forenames, p.callerMsisdn.surname, p.callerMsisdn.homeAddress,"
 			+ "p.callerMsisdn.dateOfBirth, p.timestamp) FROM MobileCallRecords p where "
 			+ "p.receiverMsisdn.phoneNumber = :phoneNumber";
 
