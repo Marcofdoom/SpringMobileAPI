@@ -1,4 +1,4 @@
-package com.bae.mobileapi.repository;
+package com.bae.mobileapi.repository.mobilecallrecords;
 
 import java.util.List;
 

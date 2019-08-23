@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.bae.mobileapi.model.DTO.MobileCallRecordsDTO;
 
 @Service
-public interface AssociatesService {
+public interface MobileCallRecordsService {
 
 	List<MobileCallRecordsDTO> getMobileCallRecordsDTO(String phoneNumber);
 }

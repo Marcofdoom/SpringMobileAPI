@@ -1,4 +1,4 @@
-package com.bae.mobileapi.repository;
+package com.bae.mobileapi.repository.mobilecallrecords;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

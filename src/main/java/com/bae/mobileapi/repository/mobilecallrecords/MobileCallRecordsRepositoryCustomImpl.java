@@ -1,4 +1,4 @@
-package com.bae.mobileapi.repository;
+package com.bae.mobileapi.repository.mobilecallrecords;
 
 import java.util.List;
 
@@ -14,6 +14,16 @@ import com.bae.mobileapi.util.CallType;
 @Repository
 public class MobileCallRecordsRepositoryCustomImpl implements MobileCallRecordsRepositoryCustom {
 
+	private static final String CALLS_CALLED_QUERY = "SELECT NEW com.bae.mobileapi.model.DTO.MobileCallRecordsDTO("
+			+ "p.receiverMsisdn.forenames, p.receiverMsisdn.surname, p.receiverMsisdn.address,"
+			+ "p.receiverMsisdn.dateOfBirth, p.timestamp) FROM MobileCallRecords p where "
+			+ "p.callerMsisdn.phoneNumber = :phoneNumber";
+
+	private static final String CALLS_RECEIVED_QUERY = "SELECT NEW com.bae.mobileapi.model.DTO.MobileCallRecordsDTO("
+			+ "p.callerMsisdn.forenames, p.callerMsisdn.surname, p.callerMsisdn.address,"
+			+ "p.callerMsisdn.dateOfBirth, p.timestamp) FROM MobileCallRecords p where "
+			+ "p.receiverMsisdn.phoneNumber = :phoneNumber";
+
 	private EntityManager entityManager;
 
 	@Autowired
@@ -25,18 +35,10 @@ public class MobileCallRecordsRepositoryCustomImpl implements MobileCallRecordsR
 	public List<MobileCallRecordsDTO> getMobileCallRecordsDTO(String phoneNumber) {
 
 		TypedQuery<MobileCallRecordsDTO> queryCaller = entityManager
-				.createQuery("SELECT NEW com.bae.mobileapi.model.DTO.MobileCallRecordsDTO("
-						+ "p.receiverMsisdn.forenames, p.receiverMsisdn.surname, p.receiverMsisdn.address,"
-						+ "p.receiverMsisdn.dateOfBirth, p.timestamp) FROM MobileCallRecords p where "
-						+ "p.callerMsisdn.phoneNumber = :phoneNumber", MobileCallRecordsDTO.class)
-				.setParameter("phoneNumber", phoneNumber);
+				.createQuery(CALLS_CALLED_QUERY, MobileCallRecordsDTO.class).setParameter("phoneNumber", phoneNumber);
 
 		TypedQuery<MobileCallRecordsDTO> queryReceiver = entityManager
-				.createQuery("SELECT NEW com.bae.mobileapi.model.DTO.MobileCallRecordsDTO("
-						+ "p.callerMsisdn.forenames, p.callerMsisdn.surname, p.callerMsisdn.address,"
-						+ "p.callerMsisdn.dateOfBirth, p.timestamp) FROM MobileCallRecords p where "
-						+ "p.receiverMsisdn.phoneNumber = :phoneNumber", MobileCallRecordsDTO.class)
-				.setParameter("phoneNumber", phoneNumber);
+				.createQuery(CALLS_RECEIVED_QUERY, MobileCallRecordsDTO.class).setParameter("phoneNumber", phoneNumber);
 
 		List<MobileCallRecordsDTO> queryCallers = queryCaller.getResultList();
 		List<MobileCallRecordsDTO> queryReceivers = queryReceiver.getResultList();

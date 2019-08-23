@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.bae.mobileapi.model.DTO.MobileCallRecordsDTO;
-import com.bae.mobileapi.repository.MobileCallRecordsRepository;
+import com.bae.mobileapi.repository.mobilecallrecords.MobileCallRecordsRepository;
 
 @Service
-public class AssociatesServiceImpl implements AssociatesService {
+public class MobileCallRecordsServiceImpl implements MobileCallRecordsService {
 
 	private MobileCallRecordsRepository repository;
 
-	public AssociatesServiceImpl(MobileCallRecordsRepository repository) {
+	public MobileCallRecordsServiceImpl(MobileCallRecordsRepository repository) {
 		this.repository = repository;
 	}
 
