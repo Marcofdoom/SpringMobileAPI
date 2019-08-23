@@ -12,25 +12,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bae.mobileapi.model.PeopleMobile;
-import com.bae.mobileapi.service.AssociatesService;
-import com.bae.mobileapi.service.MobileService;
+import com.bae.mobileapi.service.PeopleMobileService;
 
 @RestController
 @RequestMapping("/Mobile")
-public class MobileController {
+public class PeopleMobileController {
 
-	private MobileService mobileService;
+	private PeopleMobileService service;
 
-	private AssociatesService associatesService;
-
-	public MobileController() {
+	public PeopleMobileController() {
 
 	}
 
 	@Autowired
-	public MobileController(MobileService mobileService, AssociatesService associatesService) {
-		this.mobileService = mobileService;
-		this.associatesService = associatesService;
+	public PeopleMobileController(PeopleMobileService service) {
+		this.service = service;
 	}
 
 	@GetMapping("/getMobile")
@@ -39,19 +35,13 @@ public class MobileController {
 			@RequestParam(value = "homeAddress", required = false) String homeAddress,
 			@RequestParam(value = "dateOfBirth", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateOfBirth) {
 
-		PeopleMobile peopleMobileEntity = new PeopleMobile();
+		PeopleMobile peopleMobile = new PeopleMobile();
 
-		peopleMobileEntity.setForenames(forenames);
-		peopleMobileEntity.setSurname(surname);
-		peopleMobileEntity.setAddress(homeAddress);
-		peopleMobileEntity.setDateOfBirth(dateOfBirth);
+		peopleMobile.setForenames(forenames);
+		peopleMobile.setSurname(surname);
+		peopleMobile.setAddress(homeAddress);
+		peopleMobile.setDateOfBirth(dateOfBirth);
 
-		return new ResponseEntity<>(mobileService.getMobile(peopleMobileEntity), HttpStatus.OK);
-	}
-
-	@GetMapping("/getAssociates")
-	public ResponseEntity<Object> getRecordsDTO(
-			@RequestParam(value = "phoneNumber", required = false) String phoneNumber) {
-		return new ResponseEntity<>(associatesService.getMobileCallRecordsDTO(phoneNumber), HttpStatus.OK);
+		return new ResponseEntity<>(service.findMobile(peopleMobile), HttpStatus.OK);
 	}
 }

@@ -90,5 +90,4 @@ public class PeopleMobile {
 	public void setNetwork(String network) {
 		this.network = network;
 	}
-
 }
