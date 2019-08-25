@@ -1,4 +1,4 @@
-package com.bae.mobileapi.util;
+package com.bae.mobileapi.dto;
 
 public enum CallType {
 
