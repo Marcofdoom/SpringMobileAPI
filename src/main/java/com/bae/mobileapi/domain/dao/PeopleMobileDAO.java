@@ -21,4 +21,8 @@ public class PeopleMobileDAO {
     public List<PeopleMobile> findAllPhoneNumbersByIdentity(Example<PeopleMobile> peopleMobile) {
         return peopleMobileRepository.findAll(peopleMobile);
     }
+
+    public void savePeopleMobile(PeopleMobile peopleMobile) {
+        peopleMobileRepository.save(peopleMobile);
+    }
 }

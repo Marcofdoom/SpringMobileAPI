@@ -8,13 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/mobile")
@@ -22,6 +20,8 @@ public class MobileCallRecordsController {
 
     private MobileCallRecordsService mobileCallRecordsService;
     private PeopleMobileService peopleMobileService;
+
+    private int number = 0;
 
     @Autowired
     public MobileCallRecordsController(MobileCallRecordsService mobileCallRecordsService, PeopleMobileService peopleMobileService) {
@@ -49,5 +49,14 @@ public class MobileCallRecordsController {
         peopleMobile.setDateOfBirth(dateOfBirth);
 
         return new ResponseEntity<>(peopleMobileService.findAllPhoneNumbersByIdentity(peopleMobile), HttpStatus.OK);
+    }
+
+    @PostMapping("post-data")
+    public void postData() {
+        for (int i = 0; i < 10000; i++) {
+            number++;
+            String phoneNumber = String.format("%09d", number);
+            peopleMobileService.savePeopleMobile(new PeopleMobile(phoneNumber, new Date(), "f", "h", "n", "s"));
+        }
     }
 }
