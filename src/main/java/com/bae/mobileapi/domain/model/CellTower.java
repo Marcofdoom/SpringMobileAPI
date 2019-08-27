@@ -1,4 +1,4 @@
-package com.bae.mobileapi.model;
+package com.bae.mobileapi.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
