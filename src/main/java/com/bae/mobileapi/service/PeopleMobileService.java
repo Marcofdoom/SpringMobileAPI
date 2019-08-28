@@ -22,8 +22,4 @@ public class PeopleMobileService {
     public List<PeopleMobile> findAllPhoneNumbersByIdentity(PeopleMobile probe) {
         return peopleMobileDAO.findAllPhoneNumbersByIdentity(Example.of(probe, ExampleMatcher.matching().withIgnoreCase()));
     }
-
-    public void savePeopleMobile(PeopleMobile peopleMobile) {
-        peopleMobileDAO.savePeopleMobile(peopleMobile);
-    }
 }

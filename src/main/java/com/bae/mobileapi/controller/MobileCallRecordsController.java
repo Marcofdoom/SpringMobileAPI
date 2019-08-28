@@ -21,8 +21,6 @@ public class MobileCallRecordsController {
     private MobileCallRecordsService mobileCallRecordsService;
     private PeopleMobileService peopleMobileService;
 
-    private int number = 0;
-
     @Autowired
     public MobileCallRecordsController(MobileCallRecordsService mobileCallRecordsService, PeopleMobileService peopleMobileService) {
         this.mobileCallRecordsService = mobileCallRecordsService;
@@ -49,14 +47,5 @@ public class MobileCallRecordsController {
         peopleMobile.setDateOfBirth(dateOfBirth);
 
         return new ResponseEntity<>(peopleMobileService.findAllPhoneNumbersByIdentity(peopleMobile), HttpStatus.OK);
-    }
-
-    @PostMapping("post-data")
-    public void postData() {
-        for (int i = 0; i < 10000; i++) {
-            number++;
-            String phoneNumber = String.format("%09d", number);
-            peopleMobileService.savePeopleMobile(new PeopleMobile(phoneNumber, new Date(), "f", "h", "n", "s"));
-        }
     }
 }
