@@ -12,18 +12,15 @@ import java.util.List;
 @Service
 public class PeopleMobileService {
 
-    private PeopleMobileDAO peopleMobileDAO;
+	private PeopleMobileDAO peopleMobileDAO;
 
-    @Autowired
-    public PeopleMobileService(PeopleMobileDAO peopleMobileDAO) {
-        this.peopleMobileDAO = peopleMobileDAO;
-    }
+	@Autowired
+	public PeopleMobileService(PeopleMobileDAO peopleMobileDAO) {
+		this.peopleMobileDAO = peopleMobileDAO;
+	}
 
-    public List<PeopleMobile> findAllPhoneNumbersByIdentity(PeopleMobile probe) {
-        return peopleMobileDAO.findAllPhoneNumbersByIdentity(Example.of(probe, ExampleMatcher.matching().withIgnoreCase()));
-    }
-
-    public void savePeopleMobile(PeopleMobile peopleMobile) {
-        peopleMobileDAO.savePeopleMobile(peopleMobile);
-    }
+	public List<PeopleMobile> findAllPhoneNumbersByIdentity(PeopleMobile probe) {
+		return peopleMobileDAO
+				.findAllPhoneNumbersByIdentity(Example.of(probe, ExampleMatcher.matching().withIgnoreCase()));
+	}
 }

@@ -1,18 +1,21 @@
 package com.bae.mobileapi.controller;
 
-import com.bae.mobileapi.domain.model.PeopleMobile;
-import com.bae.mobileapi.dto.MobileCallRecordsDTO;
-import com.bae.mobileapi.service.MobileCallRecordsService;
-import com.bae.mobileapi.service.PeopleMobileService;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import com.bae.mobileapi.domain.model.PeopleMobile;
+import com.bae.mobileapi.dto.MobileCallRecordsDTO;
+import com.bae.mobileapi.service.MobileCallRecordsService;
+import com.bae.mobileapi.service.PeopleMobileService;
 
 @RestController
 @RequestMapping("/Mobile")
@@ -30,7 +33,7 @@ public class MobileCallRecordsController {
 
 	@GetMapping("/geAssociates")
 	public ResponseEntity<List<MobileCallRecordsDTO>> getAssociatesByPhoneNumber(
-			@RequestParam(value = "phone-number") String phoneNumber) {
+			@RequestParam(value = "phoneNumber") String phoneNumber) {
 		return new ResponseEntity<>(mobileCallRecordsService.findAssociatesByPhoneNumber(phoneNumber), HttpStatus.OK);
 	}
 

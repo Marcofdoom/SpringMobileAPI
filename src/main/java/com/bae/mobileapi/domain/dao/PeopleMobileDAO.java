@@ -11,18 +11,14 @@ import java.util.List;
 @Repository
 public class PeopleMobileDAO {
 
-    private PeopleMobileRepository peopleMobileRepository;
+	private PeopleMobileRepository peopleMobileRepository;
 
-    @Autowired
-    public PeopleMobileDAO(PeopleMobileRepository peopleMobileRepository) {
-        this.peopleMobileRepository = peopleMobileRepository;
-    }
+	@Autowired
+	public PeopleMobileDAO(PeopleMobileRepository peopleMobileRepository) {
+		this.peopleMobileRepository = peopleMobileRepository;
+	}
 
-    public List<PeopleMobile> findAllPhoneNumbersByIdentity(Example<PeopleMobile> peopleMobile) {
-        return peopleMobileRepository.findAll(peopleMobile);
-    }
-
-    public void savePeopleMobile(PeopleMobile peopleMobile) {
-        peopleMobileRepository.save(peopleMobile);
-    }
+	public List<PeopleMobile> findAllPhoneNumbersByIdentity(Example<PeopleMobile> peopleMobile) {
+		return peopleMobileRepository.findAll(peopleMobile);
+	}
 }
