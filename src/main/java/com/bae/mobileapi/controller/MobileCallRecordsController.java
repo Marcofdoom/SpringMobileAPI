@@ -31,17 +31,17 @@ public class MobileCallRecordsController {
 		this.peopleMobileService = peopleMobileService;
 	}
 
-	@GetMapping("/geAssociates")
+	@GetMapping("/getAssociates")
 	public ResponseEntity<List<MobileCallRecordsDTO>> getAssociatesByPhoneNumber(
 			@RequestParam(value = "phoneNumber") String phoneNumber) {
 		return new ResponseEntity<>(mobileCallRecordsService.findAssociatesByPhoneNumber(phoneNumber), HttpStatus.OK);
 	}
 
-	@GetMapping("/geMobile")
+	@GetMapping("/getMobile")
 	public ResponseEntity<List<PeopleMobile>> getAllPhoneNumbersByIdentity(
 			@RequestParam(value = "forenames") String forenames, @RequestParam(value = "surname") String surname,
-			@RequestParam(value = "homeAddress") String homeAddress,
-			@RequestParam(value = "dateOfBirth") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateOfBirth) {
+			@RequestParam(value = "homeAddress", required = false) String homeAddress,
+			@RequestParam(value = "dateOfBirth", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateOfBirth) {
 
 		PeopleMobile peopleMobile = new PeopleMobile();
 
