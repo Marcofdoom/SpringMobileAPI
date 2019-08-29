@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skyre-mobile
+  labels: 
+    app: skyre-mobile
+spec:
+  selector:
+    matchLabels:
+      app: skyre-mobile
+  template:
+    metadata:
+      labels:
+        app: skyre-mobile
+    spec:
+      containers:
+      - name: skyre-mobile
+        image: eyjafjalla/skyre-mobile:latest
+        ports:
+        - containerPort: 8084
